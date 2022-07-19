@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.enderx.jobsearcher.core.component.loading.LoadingType" />
+
+        <variable
+            name="dto"
+            type="com.enderx.jobsearcher.core.component.loading.LoadingDto" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:visible="@{dto.show}">
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_baseline_ac_unit_24"
+            app:animationId="@{dto.loadingType.getLoadingRes()}"
+            app:animationStart="@{dto.show}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorPrimary"
+            app:visible="@{dto.loadingType == LoadingType.TYPE_SPINNER}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

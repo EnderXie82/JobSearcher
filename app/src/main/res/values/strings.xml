@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">JobSearcher</string>
+    <string name="welcome">Welcome</string>
+    <string name="hint_input_job">Input Job</string>
+    <string name="search">Search</string>
+    <string name="search_result">Search Result</string>
+    <string name="count">Count: %d</string>
+    <string name="detail">Detail</string>
+    <string name="version">V %s</string>
+</resources>
