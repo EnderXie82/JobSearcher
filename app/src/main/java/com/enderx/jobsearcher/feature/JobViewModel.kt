@@ -2,13 +2,16 @@ package com.enderx.jobsearcher.feature
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.enderx.jobsearcher.core.BaseViewModel
 import com.enderx.jobsearcher.core.utils.Constant
 import com.enderx.jobsearcher.feature.home.model.data.History
 import com.enderx.jobsearcher.feature.home.model.response.GetJobsResponse
 import com.enderx.jobsearcher.feature.home.model.response.Job
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class JobViewModel : ViewModel() {
+@HiltViewModel
+class JobViewModel @Inject constructor() : BaseViewModel() {
 
     private var _historyList: MutableLiveData<ArrayDeque<History>> = MutableLiveData(ArrayDeque())
     val historyList: LiveData<ArrayDeque<History>> = _historyList

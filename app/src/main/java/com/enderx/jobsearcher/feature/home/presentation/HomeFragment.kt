@@ -72,6 +72,7 @@ class HomeFragment : JobFragment<HomeViewModel, FragmentHomeBinding>(),
             findNavController().navigate(R.id.search_result)
         }
         viewModel.onSearchSuccess.observe(viewLifecycleOwner) {
+            dataBinding.btnSearch.isEnabled = true
             if (it != null) {
                 sharedViewModel.updateSearchResult(it)
             }
@@ -95,6 +96,7 @@ class HomeFragment : JobFragment<HomeViewModel, FragmentHomeBinding>(),
     override fun onClick(text: View?) {
         closeKeyBoard()
         with(dataBinding) {
+            btnSearch.isEnabled = false
             etJob.text.toString().let {
                 viewModel?.fetchJobs(it)
                 sharedViewModel?.handleHistoryList(it)
